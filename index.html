@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10251f" />
+  <meta name="description" content="Naivasha Hub — discover stays, experiences, dining and nights out around Naivasha." />
+  <title>Naivasha Hub — Your Naivasha, your way.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQfUu0E1zWZcZ3H6JDRC7Ua5L3Kx0u0=" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Naivasha Hub home">
+        <span class="brand-mark">NH</span>
+        <span>
+          <strong>Naivasha</strong>
+          <small>HUB</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#discover">Discover</a>
+        <a href="#stays">Stay</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#food-nightlife">Eat & Nightlife</a>
+        <a href="#plans">Plans</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="ghost-btn" id="locationBtn">⌖ Naivasha</button>
+        <button class="primary-btn small" id="planBtn">Build my trip</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#discover">Discover</a>
+      <a href="#stays">Stay</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#food-nightlife">Eat & Nightlife</a>
+      <a href="#plans">Plans</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="discover">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow light">THE LOCAL GUIDE TO NAIVASHA</p>
+        <h1>Your Naivasha.<br><em>Your way.</em></h1>
+        <p class="hero-copy">
+          Stays, experiences, food, nightlife and the best ways to move around.
+          Discover what fits the kind of day you want.
+        </p>
+
+        <div class="intent-bar">
+          <button class="intent active" data-filter="all">Everything</button>
+          <button class="intent" data-filter="romantic">Romantic</button>
+          <button class="intent" data-filter="adventure">Adventure</button>
+          <button class="intent" data-filter="family">Family</button>
+          <button class="intent" data-filter="chill">Chill</button>
+          <button class="intent" data-filter="nightlife">Nightlife</button>
+        </div>
+
+        <div class="search-panel">
+          <div class="search-field">
+            <span>⌕</span>
+            <div>
+              <small>What are you looking for?</small>
+              <input id="searchInput" type="search" placeholder="Try “romantic weekend” or “boat ride”" />
+            </div>
+          </div>
+          <div class="search-field compact">
+            <span>◷</span>
+            <div>
+              <small>When</small>
+              <strong>This weekend</strong>
+            </div>
+          </div>
+          <div class="search-field compact">
+            <span>◉</span>
+            <div>
+              <small>With</small>
+              <strong>2 people</strong>
+            </div>
+          </div>
+          <button class="search-btn" id="searchBtn">Explore</button>
+        </div>
+      </div>
+      <div class="hero-scroll">SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section class="section intro-section">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">START WITH A FEELING</p>
+          <h2>What kind of Naivasha<br><em>are you after?</em></h2>
+        </div>
+        <p class="section-lede">Less searching. More living. Tell us the mood and we'll bring the right places together.</p>
+      </div>
+
+      <div class="mood-grid">
+        <button class="mood-card mood-romantic" data-mood="romantic">
+          <span>01</span><strong>Romantic</strong><small>Slow mornings · sunsets · two</small>
+        </button>
+        <button class="mood-card mood-adventure" data-mood="adventure">
+          <span>02</span><strong>Adventure</strong><small>Cliffs · bikes · wild places</small>
+        </button>
+        <button class="mood-card mood-family" data-mood="family">
+          <span>03</span><strong>Family</strong><small>Easy days · space · memories</small>
+        </button>
+        <button class="mood-card mood-chill" data-mood="chill">
+          <span>04</span><strong>Chill</strong><small>Lake air · good food · no rush</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="experiences">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow light">CURATED FOR RIGHT NOW</p>
+          <h2>Don't just visit.<br><em>Have a day.</em></h2>
+        </div>
+        <a class="text-link light" href="#experiences">View all experiences →</a>
+      </div>
+
+      <div class="experience-grid">
+        <article class="experience-card" data-tags="adventure chill">
+          <div class="card-image img-hells">
+            <span class="badge">LOCAL PICK</span>
+            <button class="save" aria-label="Save experience">♡</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span>ADVENTURE</span><span>Half day</span></div>
+            <h3>Hell's Gate escape</h3>
+            <p>Cycle through volcanic cliffs, gorges and open Rift Valley country.</p>
+            <div class="card-foot"><strong>Plan before you go</strong><button class="outline-btn venue-trigger" data-venue="hells-gate">See details</button></div>
+          </div>
+        </article>
+
+        <article class="experience-card" data-tags="romantic chill">
+          <div class="card-image img-lake">
+            <span class="badge">SIGNATURE</span>
+            <button class="save" aria-label="Save experience">♡</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span>LAKE</span><span>1–2 hours</span></div>
+            <h3>Lake Naivasha at golden hour</h3>
+            <p>A quiet boat ride, open water and a sunset worth slowing down for.</p>
+            <div class="card-foot"><strong>Plan before you go</strong><button class="outline-btn venue-trigger" data-venue="lake-naivasha">See details</button></div>
+          </div>
+        </article>
+
+        <article class="experience-card" data-tags="family chill">
+          <div class="card-image img-crescent">
+            <span class="badge">WILDLIFE</span>
+            <button class="save" aria-label="Save experience">♡</button>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span>NATURE</span><span>2–3 hours</span></div>
+            <h3>Crescent Island walking safari</h3>
+            <p>Walk among wildlife with the lake and Rift Valley landscape around you.</p>
+            <div class="card-foot"><strong>Plan before you go</strong><button class="outline-btn venue-trigger" data-venue="crescent-island">See details</button></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="stays">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">STAY SOMEWHERE YOU'LL REMEMBER</p>
+          <h2>Places with a<br><em>point of view.</em></h2>
+        </div>
+        <a class="text-link" href="#stays">Explore stays →</a>
+      </div>
+
+      <div class="stay-grid">
+        <article class="stay-card featured-stay venue-trigger" data-venue="enashipai" tabindex="0" role="button" aria-label="View Enashipai Resort details">
+          <div class="stay-image img-enashipai"><span class="stay-type">RESORT · SPA</span></div>
+          <div class="stay-info"><div><h3>Enashipai Resort & Spa</h3><p>Naivasha · Luxury</p></div><strong>★★★★★</strong></div>
+        </article>
+        <article class="stay-card venue-trigger" data-venue="sawela" tabindex="0" role="button" aria-label="View Sawela Lodges details">
+          <div class="stay-image img-cottage"><span class="stay-type">LODGE</span></div>
+          <div class="stay-info"><div><h3>Sawela Lodges</h3><p>Lake Naivasha · Family</p></div><strong>View venue ↗</strong></div>
+        </article>
+        <article class="stay-card venue-trigger" data-venue="lake-naivasha-resort" tabindex="0" role="button" aria-label="View Lake Naivasha Resort details">
+          <div class="stay-image img-camp"><span class="stay-type">RESORT</span></div>
+          <div class="stay-info"><div><h3>Lake Naivasha Resort</h3><p>Lakeside · Wildlife · Escape</p></div><strong>View venue ↗</strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section plans-section" id="plans">
+      <div class="plan-copy">
+        <p class="eyebrow">THE NAIVASHA HUB DIFFERENCE</p>
+        <h2>Tell us the weekend.<br><em>We'll shape the day.</em></h2>
+        <p>Choose your mood, budget and time. Naivasha Hub connects the dots between where you stay, what you do, where you eat and how you get around.</p>
+        <button class="primary-btn" id="buildPlan">Build a Naivasha plan <span>→</span></button>
+      </div>
+      <div class="plan-preview">
+        <div class="phone-frame">
+          <div class="phone-top"><span>09:42</span><span>● ●</span></div>
+          <p class="mini-eyebrow">YOUR SATURDAY</p>
+          <h3>Romantic<br><em>Naivasha</em></h3>
+          <div class="timeline">
+            <div><b>09:00</b><span>Slow breakfast<br><small>Lakeside</small></span></div>
+            <div><b>11:30</b><span>Crescent Island<br><small>Walking safari</small></span></div>
+            <div><b>16:30</b><span>Lake boat ride<br><small>Golden hour</small></span></div>
+            <div><b>19:30</b><span>Dinner & drinks<br><small>Naivasha</small></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section food-section" id="food-nightlife">
+      <div class="section-head split">
+        <div>
+          <p class="eyebrow">AFTER THE ADVENTURE</p>
+          <h2>Eat well.<br><em>Stay longer.</em></h2>
+        </div>
+        <p class="section-lede">From lakeside lunches to late nights, discover the places that give Naivasha its social energy.</p>
+      </div>
+      <div class="food-strip">
+        <article class="food-card img-food1 venue-trigger" data-venue="camp-carnelley" tabindex="0" role="button"><span>LAKESIDE DINING</span><h3>Camp Carnelley’s</h3></article>
+        <article class="food-card img-food2 venue-trigger" data-venue="matteos" tabindex="0" role="button"><span>ITALIAN · BAR</span><h3>Matteo’s</h3></article>
+        <article class="food-card img-food3 venue-trigger" data-venue="clubhouse" tabindex="0" role="button"><span>CAFÉ</span><h3>Club House Café</h3></article>
+        <article class="food-card img-night venue-trigger" data-venue="wave" tabindex="0" role="button"><span>NIGHTLIFE</span><h3>Wave Nightclub</h3></article>
+      </div>
+    </section>
+
+    <section class="section map-section">
+      <div class="map-copy">
+        <p class="eyebrow">NAIVASHA, AT A GLANCE</p>
+        <h2>Know what's<br><em>around you.</em></h2>
+        <p>Share your location once to see your distance from a selected venue. Your location stays in this browser.</p>
+        <button class="outline-btn" id="nearMeBtn">Use my location</button>
+        <div class="location-status" id="locationStatus">Location is off</div>
+        <div class="selected-place" id="selectedPlace">Select any venue card to plan the ride.</div>
+        <div class="ride-actions" id="rideActions" hidden><a id="directionsLink" target="_blank" rel="noopener">Directions ↗</a><a id="boltLink" target="_blank" rel="noopener">Open Bolt ↗</a><a id="uberLink" target="_blank" rel="noopener">Open Uber ↗</a></div>
+      </div>
+      <div class="map-mock" id="liveMap" aria-label="Interactive Naivasha map"></div>
+    </section>
+
+    <section class="newsletter">
+      <div>
+        <p class="eyebrow light">THE WEEKEND STARTS HERE</p>
+        <h2>Get the good<br><em>stuff first.</em></h2>
+      </div>
+      <form id="newsletterForm">
+        <input type="email" placeholder="Your email address" aria-label="Email address" required>
+        <button class="primary-btn" type="submit">Join Hub <span>→</span></button>
+      </form>
+      <p class="form-note" id="formNote"></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span class="brand-mark">NH</span><strong>Naivasha Hub</strong></div>
+    <p>Your local guide to stays, experiences, food and nights out.</p>
+    <div class="footer-links"><a href="#">About</a><a href="#">List your business</a><a href="#">Contact</a><a href="#">Privacy</a></div>
+    <small>© 2026 Naivasha Hub. Built for Naivasha.</small>
+  </footer>
+
+  <div class="modal" id="tripModal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose">×</button>
+      <p class="eyebrow">BUILD YOUR DAY</p>
+      <h2>What are you<br><em>in the mood for?</em></h2>
+      <div class="modal-options">
+        <button data-choice="Romantic">♡ Romantic</button>
+        <button data-choice="Adventure">↗ Adventure</button>
+        <button data-choice="Family">⌂ Family</button>
+        <button data-choice="Chill">◌ Chill</button>
+      </div>
+      <div class="budget-row">
+        <label>Budget</label>
+        <select id="budget">
+          <option>Under KSh 5,000</option>
+          <option>KSh 5,000 – 15,000</option>
+          <option>KSh 15,000 – 30,000</option>
+          <option>KSh 30,000+</option>
+        </select>
+      </div>
+      <button class="primary-btn full" id="generatePlan">Create my plan →</button>
+      <p class="generated-plan" id="generatedPlan"></p>
+    </div>
+  </div>
+
+  <div class="modal" id="venueModal" aria-hidden="true"><div class="modal-backdrop"></div><div class="modal-card venue-modal-card"><button class="modal-close" id="venueClose" aria-label="Close">×</button><p class="eyebrow" id="venueType"></p><h2 id="venueName"></h2><p class="venue-description" id="venueDescription"></p><div class="venue-actions"><a class="primary-btn" id="venueWebsite" target="_blank" rel="noopener">Official website ↗</a><button class="outline-btn" id="venueMap">See on map</button></div></div></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
